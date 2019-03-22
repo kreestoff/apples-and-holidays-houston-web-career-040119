@@ -60,13 +60,15 @@ def all_supplies_in_holidays(holiday_hash)
 end
 
 def all_holidays_with_bbq(holiday_hash)
+  array = []
   holiday_hash.map do |season, holidays|
     holidays.map do |holiday, supplies|
       if supplies.include?("BBQ")
-        holiday
+        array << holiday
+        array.flatten.compact
       end
     end
-  end.flatten.compact
+  end
 end
 
 
